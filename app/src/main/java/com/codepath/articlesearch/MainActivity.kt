@@ -46,20 +46,20 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             (application as ArticleApplication).db.articleDao().getAll().collect { databaseList ->
-                databaseList.map { entity ->
+                val mappedList = databaseList.map { entity ->
                     DisplayArticle(
                         entity.headline,
                         entity.articleAbstract,
                         entity.byline,
                         entity.mediaImageUrl
                     )
-                }.also { mappedList ->
-                    articles.clear()
-                    articles.addAll(mappedList)
-                    articleAdapter.notifyDataSetChanged()
                 }
+                articles.clear()
+                articles.addAll(mappedList)
+                articleAdapter.notifyDataSetChanged()
             }
         }
+
 
 
 
