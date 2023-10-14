@@ -15,6 +15,8 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
 import org.json.JSONException
+import com.codepath.articlesearch.Article
+
 
 fun createJson() = Json {
     isLenient = true
